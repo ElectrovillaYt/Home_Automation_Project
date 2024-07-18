@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Voice Assistant</title>
+  <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+      }
+    }
+
+    .animate-pulse {
+      animation: pulse 1.5s infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen flex items-center justify-center">
+  <div class="bg-gray-700 border-slate-50 border shadow-sm shadow-slate-50 rounded-lg p-6 max-w-md w-[90vw]">
+    <h1 class="text-2xl text-white font-semibold mb-4">Home Automation Voice Assistant</h1>
+    <div class="mb-4">
+      <label class="block text-white text-sm font-bold mb-2" for="textCommand">
+        Speak or Type:
+      </label>
+      <div class="flex">
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-900"
+          id="textCommand" type="text" placeholder="Type your command...">
+        <button type="button"><img src="static/assets/send.svg" height="30px" width="40px" alt="send"
+            id="send_btn"></button>
+      </div>
+    </div>
+    <div class="flex items-center justify-center">
+      <button id="mic_In" class="py-2 px-4 rounded focus:outline-none focus:shadow-outline h-10 w-15" type="button">
+        <img src="static/assets/mic.svg" height="30px" width="30px" alt="speak">
+      </button>
+      <div class="space-x-2 hidden" id="listen_animation">
+        <div class="w-12 h-12 bg-red-500 rounded-full animate-pulse"></div>
+        <div class="w-12 h-12 bg-green-500 rounded-full animate-pulse" style="animation-delay: 0.3s;"></div>
+        <div class="w-12 h-12 bg-blue-500 rounded-full animate-pulse" style="animation-delay: 0.6s;"></div>
+      </div>
+    </div>
+    <div class="mt-4 response flex content-center justify-center">
+      <p class="text-white" id="response_back"></p>
+    </div>
+  </div>
+
+  <script src="static/script.js"></script>
+
+</body>
+
+</html>
